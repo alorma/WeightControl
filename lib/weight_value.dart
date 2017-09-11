@@ -7,13 +7,5 @@ class WeightValue {
   String getWeight() => weight.toString();
 
   String getDate() =>
-      date.hour.toString() +
-      ":" +
-      date.minute.toString() +
-      " - " +
-      date.day.toString() +
-      "/" +
-      date.month.toString() +
-      "/" +
-      date.year.toString();
+      date.day.toString() + "/" + date.month.toString() + "/" + date.year.toString();
 }
