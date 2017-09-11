@@ -12,7 +12,11 @@ class WeightListScreen extends StatelessWidget {
               color: Colors.white,
             ),
             onPressed: () {
-              Navigator.of(context).pushNamed("/AddWeight");
+              Navigator.of(context).pushNamed("/AddWeight").then((value) => onValue(value));
             }));
+  }
+
+  onValue(double value) {
+
   }
 }
