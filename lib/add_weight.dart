@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'weight_value.dart';
 
 class AddWeightScreen extends StatelessWidget {
   @override
@@ -12,7 +13,8 @@ class AddWeightScreen extends StatelessWidget {
           children: <Widget>[
             new RaisedButton(
                 onPressed: () {
-                  Navigator.of(context).pop(24.0);
+                  WeightValue value = new WeightValue(24.0, new DateTime.now());
+                  Navigator.of(context).pop(value);
                 },
                 child: new Text("ADD"))
           ],
