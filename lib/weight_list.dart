@@ -51,11 +51,13 @@ class WidgetListState extends State<WeightListScreen> {
   }
 
   onValue(WeightValue value) {
-    WeightWidget wd = new WeightWidget(value: value);
+    if (value != null) {
+      WeightWidget wd = new WeightWidget(value: value);
 
-    setState(() {
-      _weights.add(wd);
-    });
+      setState(() {
+        _weights.add(wd);
+      });
+    }
   }
 }
 
