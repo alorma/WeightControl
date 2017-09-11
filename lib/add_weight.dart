@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'weight_value.dart';
 
 class AddWeightScreen extends StatelessWidget {
+  final TextEditingController _textController = new TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -11,9 +13,14 @@ class AddWeightScreen extends StatelessWidget {
             child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            new Container(
+              decoration: new BoxDecoration(color: Theme.of(context).cardColor),
+              child: _buildSendInput(),
+            ),
             new RaisedButton(
                 onPressed: () {
-                  WeightValue value = new WeightValue(24.0, new DateTime.now());
+                  String textValue = _textController.text;
+                  WeightValue value = new WeightValue(double.parse(textValue), new DateTime.now());
                   Navigator.of(context).pop(value);
                 },
                 child: new Text("ADD"))
@@ -22,4 +29,9 @@ class AddWeightScreen extends StatelessWidget {
       ),
     );
   }
+
+  Widget _buildSendInput() => new TextField(
+      controller: _textController,
+      decoration: new InputDecoration.collapsed(hintText: "Add weight"),
+      keyboardType: TextInputType.number);
 }
